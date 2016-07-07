@@ -8,17 +8,23 @@ var historychoices =[];
 var wins = 0;
 var losses = 0;
 var guesses = 9;
+var m = "How are you today?";
 
 var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
 
 // When the user presses the key it records the keypress and then sets it to userguess
 document.onkeyup = function(event) {
 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
+
 	// Check to make sure you did not already guess that letter
 
+
+
+
 	if (historychoices.includes(userGuess) ) {
-			alert ("While things don't always make sense but things happen for a reason and why you picked the same letter again not even Miss Cleo knows why!");
+			alert ("While things don't always make sense, things happen for a reason. You picked the same letter again not even Miss Cleo knows why!");
 	}
 
 	// Making sure the user has guesses available
@@ -35,6 +41,7 @@ document.onkeyup = function(event) {
 		}else if ((userGuess != computerGuess)){
 			guesses--;
 			historychoices.push(userGuess);
+			me = "Arent you sweet!";
 
 		}
 
@@ -50,24 +57,25 @@ document.onkeyup = function(event) {
 		historychoices = [];
 	}
 
-		var html = "<p>Pick a letter and see if Miss Cleo can pick you letter!</p>" +
-		"<p>wins: " + 
+		var html = "<h1>Pick a letter and see if you can guess which letter Miss Cleo is thinking!</h1>" +
+		"<h2>wins: " + 
 		wins + 
-		"</p>" +
-		"<p>losses: " + 
+		"</h2>" +
+		"<h2>losses: " + 
 		losses + 
-		"</p>" +
-		"<p>Guesses Left: " + 
+		"</h2>" +
+		"<h2>Guesses Left: " + 
 		guesses + 
-		"</p>" +
-		"<p>Letters Used: " + 
+		"</h2>" +
+		"<h2>Letters Used: " + 
 		historychoices + 
-		"</p>" +
-		computerGuess +
-		userGuess;
+		"</h2>"
+		"<h2>" + 
+		m + 
+		"</h2>";
 
 		// Placing the html into the game ID
-		document.querySelector('#game').innerHTML = html;
+		document.querySelector('#intro-message').innerHTML = html;
 
 		
 
